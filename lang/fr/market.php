@@ -2,5 +2,5 @@
 
 return [
     'name' => 'FAQ',
-    'description' => 'Répondez aux questions récurrentes avec des catégories et des réponses faciles à retrouver.',
+    'description' => 'Publiez des réponses que vos joueurs peuvent retrouver par recherche ou par catégorie.',
 ];
