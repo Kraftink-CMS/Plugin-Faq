@@ -1,0 +1,85 @@
+{
+    "id": "faq",
+    "name": "FAQ",
+    "authors": ["nivcoo", "KraftInk"],
+    "license": "MIT",
+    "description": "faq::messages.package_description",
+    "market": {
+        "name": "faq::market.name",
+        "author": {
+            "name": "nivcoo, KraftInk",
+            "url": "https://github.com/kraftink-cms"
+        },
+        "description": "faq::market.description"
+    },
+    "type": "plugin",
+    "games": {
+        "supported": ["*"]
+    },
+    "version": "1.0.0",
+    "namespace": "KraftInk\\Plugins\\Faq\\",
+    "provider": "KraftInk\\Plugins\\Faq\\Providers\\PluginServiceProvider",
+    "privacy": "KraftInk\\Plugins\\Faq\\Services\\Privacy",
+    "permissions": {
+        "faq.view": {
+            "label": "faq::messages.permission_view",
+            "default": {
+                "visitor": true,
+                "member": true
+            }
+        },
+        "faq.manage": {
+            "label": "faq::messages.admin_title",
+            "default": {
+                "mod": true,
+                "admin": true
+            }
+        },
+        "faq.purge": {
+            "label": "faq::messages.permission_purge",
+            "default": {
+                "admin": true
+            }
+        }
+    },
+    "navigation": {
+        "public": [
+            {
+                "label": "faq::messages.common.faq",
+                "permission": "faq.view",
+                "route": "plugins.faq.public.documents.index"
+            }
+        ],
+        "admin": [
+            {
+                "parent": "extensions",
+                "position": 600,
+                "label": "faq::messages.common.faq",
+                "permission": "faq.manage",
+                "icon": "question-circle",
+                "route": "plugins.faq.admin.documents.index"
+            }
+        ],
+        "footer": []
+    },
+    "imports": {
+        "kraftink": ["faq__"],
+        "azuriom": ["faq_", "myfaq_"],
+        "mineweb": ["faq_", "myfaq_"]
+    },
+    "requires": {
+        "php": "^8.4.1",
+        "cms": ">=0.0.1"
+    },
+    "configuration": {
+        "route": "plugins.faq.admin.documents.index",
+        "permission": "faq.manage"
+    },
+    "uninstall": {
+        "settings": ["faq.", "secret.faq."],
+        "storage": ["editor-images/faq"]
+    },
+    "assets": {
+        "scripts": ["editor.js"]
+    }
+}
